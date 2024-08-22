@@ -1,0 +1,69 @@
+body{
+    width: 90%;
+    margin: auto;
+}
+header{
+    height: 10%;
+}
+button{
+    height: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+}
+.big-result{
+    min-height: 60px;
+    background-color: antiquewhite;
+}
+.big-result:hover
+{
+    background-color: bisque;
+}
+.short-result{
+    min-height: 60px;
+    background-color: beige;
+}
+
+.short-result:hover{
+    background-color: azure;
+}
+.results
+{
+    display: none;
+    margin:0;
+}
+.sResult{
+    display: none;
+    float: right;
+    margin-right: 10px;
+}
+#logo{
+    max-height: 1.5em;
+    float: right;
+}
+#type1{
+    background-color: aqua;
+}
+#type1:hover{
+    background-color: aquamarine;
+}
+
+#type2
+{
+  background-color: blueviolet;
+  color: white;
+}
+
+#type2:hover{
+    background-color: purple;
+}
+
+#type3
+{
+  background-color: blue;
+  color: white;
+}
+
+#type3:hover{
+    background-color: green;
+}
