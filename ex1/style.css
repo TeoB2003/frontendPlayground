@@ -11,6 +11,13 @@ button{
     margin-bottom: 15px;
     margin-left: 10px;
 }
+.section-results
+{
+    display: none;
+}
+.allStats{
+    display:none;
+}
 .big-result{
     min-height: 60px;
     background-color: antiquewhite;
@@ -36,6 +43,17 @@ button{
     display: none;
     float: right;
     margin-right: 10px;
+}
+.close-btn{
+    position: fixed;
+    right: 20px;
+    bottom: 30px;
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    color: white;
+    border-color: aliceblue;
+    text-align: center;
 }
 #logo{
     max-height: 1.5em;

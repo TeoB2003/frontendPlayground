@@ -1,3 +1,20 @@
+function allStatsatOnce()
+{
+  document.getElementsByClassName('decision-module')[0].style.display='none';
+}
+
+function viewStats(typeOfStats)
+{
+  document.getElementsByClassName('decision-module')[0].style.display='none';
+  document.getElementsByClassName(typeOfStats)[0].style.display='block';
+}
+
+function closeSection(section) {
+  document.getElementsByClassName(section)[0].style.display = 'none';
+  document.getElementsByClassName('decision-module')[0].style.display = 'block';
+}
+
+
 const arr = getOlympicData();
 //the array above will be used in all exercises
 function participatingCountries() {
@@ -73,13 +90,15 @@ function randomCountry()
 
 function countriesMoreThan1M()
 {
-  totalMedals=arr.reduce((sum, item)=>sum+=item.SO_Medal+item.WO_Medal,0);
   return arr.filter(item=> item.Population>=1000000).filter(item=> item.SO_Medal<item.WO_Medal).map(a=>a.Nation);
 }
 
-function below5M()  //de facut intai  media medalie pe tara din toate datele
+function below5M()  
 {
-  return arr.filter(item=> item.Population<=5000000);
+  totalMedals=arr.reduce((sum, item)=>sum+=item.SO_Medal+item.WO_Medal,0);
+  totalCountries=arr.length;
+  avg=totalMedals/totalCountries;
+  return arr.filter(item=> item.Population<=5000000 && item.Medal__1>=avg/2).map(item=> item.Nation);
 }
 
 function recentApp()
@@ -263,7 +282,18 @@ function ex12()
 
 function ex13()
 {
+  let nations=below5M();
+  resultsContainer=document.getElementsByClassName("results")[6];
+  resultsContainer.style.display='block';
+  let resultList=document.getElementsByClassName("result-list")[6];
 
+  nations.forEach(nation => {
+    const li=document.createElement('li');
+    li.appendChild(document.createTextNode(`${nation}`));
+    resultList.appendChild(li);
+  });
+  
+  console.log(below5M());
 }
 
 function ex14()
@@ -280,9 +310,9 @@ function ex14()
 function ex15()
 {
   let nations=oldestCountriesStillExists();
-  resultsContainer=document.getElementsByClassName("results")[6];
+  resultsContainer=document.getElementsByClassName("results")[7];
   resultsContainer.style.display='block';
-  let resultList=document.getElementsByClassName("result-list")[6];
+  let resultList=document.getElementsByClassName("result-list")[7];
 
   nations.forEach(nation => {
     const li=document.createElement('li');

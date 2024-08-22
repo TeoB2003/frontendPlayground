@@ -12,6 +12,12 @@
 <header>
     <h1>Olympic stats <img  id="logo" src="./olympicLogo.png"></h1>
 </header>
+<div class="decision-module">
+    <button onclick="viewStats('allStats')" id="type1">View all stats</button>
+    <button onclick="viewStats('section-results')" id="type2">View some interesting stats</button>
+</div>
+<div class="section-results">
+<button class="close-btn" onclick="closeSection('section-results')">x</button>
 <div class="big-result">
     <button onclick="ex1()" id="type1">Name of all contries (ex1)</button>
     <div class="results">
@@ -88,9 +94,11 @@
     </div>
 </div>
 
-<div class="short-result">
-    <button onclick="ex13()" id="type2">13????????</button>
-    <div class="sResult"></div>
+<div class="big-result">
+    <button onclick="ex13()" id="type2">Countries with more medals than 1/2*avg (13)</button>
+    <div class="results">
+        <ul class="result-list"></ul>
+    </div>
 </div>
 
 <div class="short-result">
@@ -104,6 +112,10 @@
         <ul class="result-list"></ul>
     </div>
 </div>
+</div>
 
+<div class="allStats">
+    <button class="close-btn" onclick="closeSection('allStats')">x</button>
+</div>
 </body>
 </html>
