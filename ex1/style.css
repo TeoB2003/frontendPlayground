@@ -42,11 +42,55 @@ button{
 .sResult{
     display: none;
     float: right;
-    margin-right: 10px;
+    margin-right: 5%;
 }
+
+
+
+.country-region {
+    padding: 15px;
+    margin: 10px;
+    background-color: #f9f9f9;
+}
+
+.more-btn {
+    background-color: #008CBA;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.more-btn:hover {
+    background-color: #006F8E;
+}
+
+.country-details {
+    margin-top: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.country-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.country-table th, .country-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.country-table th {
+    background-color: #f2f2f2;
+}
+
+
 .close-btn{
     position: fixed;
-    right: 20px;
+    right: 5%;
     bottom: 30px;
     background-color: red;
     width: 30px;
