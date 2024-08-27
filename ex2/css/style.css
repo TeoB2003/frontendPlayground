@@ -18,7 +18,7 @@ body{
     height: 100%;
 }
 .button-area{
-    height: 80%;
+    height: 90%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -38,6 +38,7 @@ body{
     color: white;
     font-size:80%;
     display: flex;
+    font-weight: bold;
     justify-content: center;
     align-items: center;
 }
@@ -51,9 +52,47 @@ body{
 }
 
 #logout{
-    height: 2%;
+    height: 1.5%;
     min-height: 7px;
-    margin-top: 20%;
+    margin-top: 15%;
     margin-bottom: 5%;
     margin-left: 60%;
+}
+
+#card{
+    align-self: center;
+    height: 4%;
+    margin-top: 30%;
+}
+
+#love{
+    margin-top: 30%;
+    font-size: 70%;
+    font-weight: normal;
+    font-family: 'PT Sans';
+
+    justify-content: center;
+    justify-self: center;
+    text-align: center;
+}
+
+#love:hover{
+    background-color: rgba(255,255,255, 0);
+}
+#love:active{
+    color: white;
+}
+#logo
+{
+    height: 4%;
+    margin-top: 2%;
+    margin-left: 3%;
+}
+
+#back{
+    margin-top: 2%;
+    margin-left: 3%;
+    height: 3.5%;
+    width: 7.2%;
+    border: 0.5px solid white; 
 }
