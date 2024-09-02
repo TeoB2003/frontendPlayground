@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style2.css">
     <link href='https://fonts.googleapis.com/css?family=PT Sans' rel='stylesheet'>
+    <script src="./js/app.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -12,7 +13,7 @@
         <img id="logo" src="./img/ntt-logo-cxp.svg">
         <div class="left_2">
         <div class="content">
-            <p style="font-size: 1.5vw;">Welcome to the first floor</p>
+            <p style="font-size: 1.5vw;" id="greetings">Welcome to the floor </p>
             <h1 style="font-size: 4vw; margin-top: 1%;">Software development</h1>
             <button class="numbered-button" id="special">Get to know our specialists team</button>
         </div>
@@ -21,17 +22,11 @@
     <div class="right">
         <img id="logout" src="./img/logout.svg">
     <div class="button-area">
-        <button class="numbered-button">10</button>
-        <button class="numbered-button">9</button>
-        <button class="numbered-button">8</button>
-        <button class="numbered-button">7</button>
-        <button class="numbered-button">6</button>
-        <button class="numbered-button">5</button>
-        <button class="numbered-button">4</button>
-        <button class="numbered-button">3</button>
-        <button class="numbered-button">2</button>
-        <button class="numbered-button" onclick="window.location.href='./another_page.html'" id="active_b">1</button>
-        <button class="numbered-button">0</button>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                open_floor();
+            });
+        </script>
        <img id="card" src="./img/meniu_button_acces_card.svg">
        <div class="numbered-button" id="love">We ❤︎ NTTDATA</div>
     </div>
