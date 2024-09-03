@@ -6,6 +6,13 @@ function generate_floors_buttons()
         const newButton = document.createElement('button'); 
         newButton.className = 'numbered-button'; 
         newButton.textContent = `${a}`;
+
+        const info = document.createElement('div');
+        info.className = 'info';
+        info.textContent = `Go to floor ${a}`;
+
+        newButton.appendChild(info);
+
         newButton.onclick=function() {   window.location.href='./another_page.html?floor='+ a; };
         item.appendChild(newButton);
         }
@@ -28,6 +35,12 @@ function open_floor()
         if(a==floor)
             newButton.id='active_b';
         newButton.textContent = `${a}`;
+        const info = document.createElement('div');
+        info.className = 'info';
+        info.textContent = `Go to floor ${a}`;
+
+        newButton.appendChild(info);
+        
         newButton.onclick=function() {  window.location.href='./another_page.html?floor='+ a; };
         item.insertBefore(newButton, card);
         }
