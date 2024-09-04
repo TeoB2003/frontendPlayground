@@ -120,6 +120,35 @@ body{
     background-color:  rgba(0, 0, 0, 0.2);
     border-radius: 8px;
 }
+.more_info
+{
+    margin-left: 89%;
+    margin-top: 15%;
+    height: 10%;
+    width: 3%;
+    background-color: rgba(255,255,255, 0.7);
+}
+.more_info:hover {
+    background-color: greenyellow; 
+}
+
+.about {
+    visibility: hidden; 
+    margin-left: 50%;
+    margin-top: -5%;
+    width: 27%;
+    height: auto;
+    background-color: rgb(255, 255, 255, 0.5);
+    position: absolute;
+    text-align: left;
+    color: blue;
+}
+
+.more_info:hover + .about {
+    visibility: visible; 
+}
+
+
 
 .info
 {
@@ -146,6 +175,7 @@ body{
     visibility: visible;
 }
 }
+
 @media screen and (max-width: 1200px){
     .numbered-button:hover .info {
         visibility: hidden;
