@@ -1,0 +1,73 @@
+body{
+    height: 100vh;
+}
+
+.top-part{
+    height: 10vh;
+}
+.photos-area{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    gap: 5vw;
+    row-gap: 5vh;
+    justify-content: center;
+    height: 90vh;
+}
+.photo-frame{
+    width: 25vw;
+    height: 25vw;
+    border-radius: 5px;
+    border-color: grey;
+    border-width: 1px;
+    border-style: solid;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.photo-preview{
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 40%;
+}
+
+.title{
+    margin-left: 5%;
+    margin-top: 2%;
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.description{
+    margin-left: 5%;
+    font-size: medium;
+    color:grey;
+}
+
+
+@media screen and (max-width:1200px)
+{
+    .photo-frame
+    {
+        width: 40vw;
+    }
+
+}
+
+@media screen and (max-width:750px)
+{
+    .photos-area
+    {
+        gap:0;
+        row-gap: 1%;
+    }
+    .photo-frame
+    {
+        width: 80vw;
+        height: 80vw;
+    }
+
+}
