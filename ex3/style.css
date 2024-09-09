@@ -4,6 +4,11 @@ body{
 
 .top-part{
     height: 10vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255,255,255,0.9);
 }
 .photos-area{
     display: flex;
@@ -22,6 +27,7 @@ body{
     border-color: grey;
     border-width: 1px;
     border-style: solid;
+    background-color: antiquewhite;
 
     display: flex;
     flex-direction: column;
@@ -46,7 +52,16 @@ body{
     font-size: medium;
     color:grey;
 }
-
+.selectS{
+   color: black;
+   margin-left: 2em;
+   border-radius: 4px;
+   background-color: antiquewhite;
+}
+.select-area{
+    margin-top: 2%;
+    margin-left: 6%;
+}
 
 @media screen and (max-width:1200px)
 {
