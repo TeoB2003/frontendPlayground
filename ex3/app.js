@@ -57,7 +57,11 @@ function fill_select(data){
         selectNode.appendChild(newOption);
     }
     );
-
+    allOption=document.createElement("option");
+    allOption.value='all';
+    allOption.text='all';
+    selectNode.appendChild(allOption);
+    
     selectNode.addEventListener('change', handleAuthorSelect);
 
     var field=document.getElementsByClassName('select-area')[0];
@@ -67,7 +71,9 @@ function fill_select(data){
 function handleAuthorSelect(event)
 {
     const selectedAuthor = event.target.value; 
-
+    if(selectedAuthor!='all')
     photosByAuthor=photos.filter(item=>{ return item['author']==selectedAuthor });
+    else
+        photosByAuthor=photos;
     show_photos(photosByAuthor);
 }
