@@ -19,6 +19,10 @@ function show_photos(photos)
         image=document.createElement('img');
         image.src=entry['download_url'];
         image.className='photo-preview';
+        image.addEventListener('click', function () {
+            show_full_photo(entry['download_url']);
+        });
+
 
         author=document.createElement('p');
         author.className='title';
@@ -61,7 +65,7 @@ function fill_select(data){
     allOption.value='all';
     allOption.text='all';
     selectNode.appendChild(allOption);
-    
+
     selectNode.addEventListener('change', handleAuthorSelect);
 
     var field=document.getElementsByClassName('select-area')[0];
@@ -76,4 +80,20 @@ function handleAuthorSelect(event)
     else
         photosByAuthor=photos;
     show_photos(photosByAuthor);
+}
+
+function show_full_photo(link)
+{
+    elem=document.getElementsByClassName('entire_photo')[0];
+    elem.innerHTML = '<button class="close-btn" onclick="close_photo()">X</button>';
+    elem.style.display='block';
+    full_size=document.createElement('img');
+    full_size.className='full-photo';
+    full_size.src=link;
+    elem.appendChild(full_size);
+}
+
+function close_photo()
+{
+    document.getElementsByClassName('entire_photo')[0].style.display = 'none';
 }
