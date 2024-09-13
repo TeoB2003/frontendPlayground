@@ -2,6 +2,7 @@ window.load=take_photos();
 var photos;
 async function take_photos()
 {
+    show_load();
     const response= await fetch("https://picsum.photos/v2/list");
     photos= await response.json();
     console.log(photos);
@@ -11,7 +12,12 @@ async function take_photos()
 
 function show_photos(photos)
 {
+   document.getElementsByClassName('loading')[0].style.display='none';
    parent=document.getElementsByClassName('photos-area')[0];
+   document.getElementsByClassName("photos-area")[0].style.display='flex';
+   document.getElementsByClassName('top-part')[0].style.display='block';
+   document.getElementById('author').style.display='inline';
+
    parent.innerHTML = '';
    photos.forEach(entry=>{
         frame=document.createElement('div');
@@ -96,4 +102,16 @@ function show_full_photo(link)
 function close_photo()
 {
     document.getElementsByClassName('entire_photo')[0].style.display = 'none';
+}
+
+function show_load()
+{
+    const photosArea = document.getElementsByClassName("photos-area")[0];
+    const topPart = document.getElementsByClassName('top-part')[0];
+    if (photosArea) {
+        photosArea.style.display = 'none';
+    }
+    if (topPart) {
+        topPart.style.display = 'none';
+    }
 }
