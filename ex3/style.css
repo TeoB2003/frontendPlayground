@@ -3,7 +3,8 @@ body{
 }
 
 .top-part{
-    height: 8vh;
+    display: block;
+    height: calc(2vh + 2vw);
     position: fixed;
     top: 0;
     left: 0;
@@ -58,12 +59,12 @@ body{
    background-color: antiquewhite;
 }
 .select-area{
-    margin-top: 2vh;
+    margin-top: 1vh;
     margin-left: 6%;
 }
 
 .entire_photo{
-    display: none;
+    display: block;
     position: fixed;
     top : 10vh;
     left: 10vw;
@@ -113,9 +114,14 @@ body{
     animation: spin 3s linear infinite;
   }
   
-  #author{
+  .author{
+    display:inline;
+  }
+
+  .hidden-class{
     display:none;
   }
+
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }

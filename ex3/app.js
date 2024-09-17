@@ -1,24 +1,31 @@
-window.load=take_photos();
+const API_URL="https://picsum.photos/v2/list";  
+window.load=takePhotos();
 var photos;
-async function take_photos()
+
+async function takePhotos()
 {
-    show_load();
-    const response= await fetch("https://picsum.photos/v2/list");
+    try{  
+    const response= await fetch(API_URL);
     photos= await response.json();
     console.log(photos);
-    show_photos(photos);
-    fill_select(photos);
+    showPhotos(photos);
+    fillSelect(photos);
+    }
+    catch(e)
+    {
+        alert(e);
+    }
 }
 
-function show_photos(photos)
+function showPhotos(photos)
 {
-   document.getElementsByClassName('loading')[0].style.display='none';
+   document.getElementsByClassName('loading')[0].classList.toggle('hidden-class', true);  
    parent=document.getElementsByClassName('photos-area')[0];
-   document.getElementsByClassName("photos-area")[0].style.display='flex';
-   document.getElementsByClassName('top-part')[0].style.display='block';
-   document.getElementById('author').style.display='inline';
+   document.getElementsByClassName('entire_photo')[0].classList.toggle('hidden-class', true);
+   document.getElementsByClassName('author')[0].classList.toggle('hidden-class', false);
 
    parent.innerHTML = '';
+
    photos.forEach(entry=>{
         frame=document.createElement('div');
         frame.className='photo-frame';
@@ -26,7 +33,7 @@ function show_photos(photos)
         image.src=entry['download_url'];
         image.className='photo-preview';
         image.addEventListener('click', function () {
-            show_full_photo(entry['download_url']);
+            showFullPhoto(entry['download_url']);
         });
 
 
@@ -50,7 +57,7 @@ function show_photos(photos)
    })
 }
 
-function fill_select(data){
+function fillSelect(data){
     authors=new Set();
     data.forEach(item=>{
         authors.add(item['author']);
@@ -85,33 +92,21 @@ function handleAuthorSelect(event)
     photosByAuthor=photos.filter(item=>{ return item['author']==selectedAuthor });
     else
         photosByAuthor=photos;
-    show_photos(photosByAuthor);
+    showPhotos(photosByAuthor);
 }
 
-function show_full_photo(link)
+function showFullPhoto(link)
 {
     elem=document.getElementsByClassName('entire_photo')[0];
-    elem.innerHTML = '<button class="close-btn" onclick="close_photo()">X</button>';
-    elem.style.display='block';
+    elem.classList.toggle('hidden-class', false);
+    elem.innerHTML = '<button class="close-btn" onclick="closePhoto()">X</button>';
     full_size=document.createElement('img');
     full_size.className='full-photo';
     full_size.src=link;
     elem.appendChild(full_size);
 }
 
-function close_photo()
+function closePhoto()
 {
-    document.getElementsByClassName('entire_photo')[0].style.display = 'none';
-}
-
-function show_load()
-{
-    const photosArea = document.getElementsByClassName("photos-area")[0];
-    const topPart = document.getElementsByClassName('top-part')[0];
-    if (photosArea) {
-        photosArea.style.display = 'none';
-    }
-    if (topPart) {
-        topPart.style.display = 'none';
-    }
+    document.getElementsByClassName('entire_photo')[0].classList.toggle('hidden-class', true);
 }
