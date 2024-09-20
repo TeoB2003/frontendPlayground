@@ -147,6 +147,7 @@ function showPageController(page)
     if(currentPhotos.length<=12)
     {
         controller=document.getElementsByClassName('pagination-controls')[0].classList.toggle('hidden-class',true);
+        document.getElementsByClassName('photos-area')[0].style.height='90vh';
     }
     else
     {
