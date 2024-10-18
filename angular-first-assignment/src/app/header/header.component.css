@@ -1,0 +1,22 @@
+.top-part{
+    display: block;
+    height: calc(2vh + 1vw);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255,255,255,0.9);
+}
+
+.select-area{
+    margin-top: 1vh;
+    margin-left: 6%;
+}
+
+.author{
+    display:inline;
+  }
+
+.hidden-class{
+    display:none;
+  }

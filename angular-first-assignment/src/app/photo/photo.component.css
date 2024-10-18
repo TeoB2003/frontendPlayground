@@ -1,0 +1,19 @@
+.photo-frame{
+    width: 25vw;
+    height: 25vw;
+    border-radius: 5px;
+    border-color: grey;
+    border-width: 1px;
+    border-style: solid;
+    background-color: antiquewhite;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.photo-preview{
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 40%;
+}

@@ -1,0 +1,12 @@
+.photos-area{
+    margin-top: calc(2vh + 2vw + 2.5vh);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    gap: 5vw;
+    row-gap: 5vh;
+    justify-content: center;
+    height: 85vh;
+    overflow-y: auto;
+}
