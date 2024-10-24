@@ -1,6 +1,8 @@
 <div class="photos-area">
-    @for()
+    @for(photo of photos(); track photo.id)
     {
-        //pun poze
+       <app-photo [photo]="photo" (propagate_link)="showFullPhoto($event)"/>
     }
+        <app-entire-photo [photoLink]="link"/>
+
 </div>

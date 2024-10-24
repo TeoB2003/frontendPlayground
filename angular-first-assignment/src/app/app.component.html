@@ -1,1 +1,2 @@
-<app-header/>
+<app-header [authors]="authors" (author)="photosByAuthor($event)"/>
+<app-photos-area [photos]="photos()" />

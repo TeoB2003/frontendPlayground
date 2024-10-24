@@ -1,5 +1,11 @@
 <div class="top-part">
     <div class="select-area">
-        <p class="author hidden-class">Author: </p>
+        <p class="author">Author: </p>
+        <select class="selectA" [(ngModel)]="selectedAuthor" name="autorsSelect" (change)="selectAuthor()">
+            @for (a of authors(); track a) {
+                <option [value]="a"  >{{a}}</option>
+            }
+            <option value="all" >all</option>
+        </select>
     </div>
 </div>

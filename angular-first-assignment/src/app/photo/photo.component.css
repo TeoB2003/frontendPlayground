@@ -17,3 +17,17 @@
     margin-right: 5%;
     height: 40%;
 }
+
+.description{
+margin-left: 5%;
+font-size: medium;
+color:grey;
+}
+
+.title{
+    margin-left: 5%;
+    margin-top: 2%;
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 0;
+}
