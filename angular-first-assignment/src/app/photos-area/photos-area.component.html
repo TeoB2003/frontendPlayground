@@ -1,4 +1,4 @@
-<div class="photos-area">
+<div class="photos_area">
     @for(photo of photos(); track photo.id)
     {
        <app-photo [photo]="photo" (propagate_link)="showFullPhoto($event)"/>

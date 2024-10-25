@@ -1,0 +1,10 @@
+<div class="pagination_controls">
+    @if (pageNumber>1 &&totalPages()!=1)
+    {
+        <button id="prev_btn" >&lt;&lt;</button>
+    }
+    <span id="page_number">{{pageNumber}}</span>
+    @if(pageNumber< totalPages()-1){
+        <button id="next_btn" >&gt;&gt;</button>
+    }
+</div>

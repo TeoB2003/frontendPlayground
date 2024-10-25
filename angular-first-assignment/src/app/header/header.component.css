@@ -1,4 +1,4 @@
-.top-part{
+.top_part{
     display: block;
     height: calc(2vh + 1vw);
     position: fixed;
@@ -8,7 +8,7 @@
     background-color: rgba(255,255,255,0.9);
 }
 
-.select-area{
+.select_area{
     margin-top: 1vh;
     margin-left: 6%;
 }
@@ -17,7 +17,7 @@
     display:inline;
   }
 
-.hidden-class{
+.hidden_class{
     display:none;
   }
 .selectA{

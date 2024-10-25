@@ -1,5 +1,5 @@
-<div class="photo-frame">
-    <img [src]="photo()?.download_url" class="photo-preview" (click)="clickOnPhoto(photo()!.download_url)">
+<div class="photo_frame">
+    <img [src]="photo()?.download_url" class="photo_preview" (click)="clickOnPhoto(photo()!.download_url)">
     <p class="title">{{photo()?.author}}</p>
     <p class="description">This photo has {{photo()?.height}}  px height and {{photo()?.width}} px width. You can download it from:
         {{photo()?.download_url}}</p>

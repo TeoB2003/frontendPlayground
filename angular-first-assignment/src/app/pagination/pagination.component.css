@@ -1,0 +1,22 @@
+#prev_btn, #next_btn {
+    margin-top: calc((5vh - 14px) / 2);
+    font-size: 12px;
+    cursor: pointer;
+    background-color: antiquewhite;
+}
+
+#page_number {
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.pagination_controls {
+    text-align: center;
+    top: 95vh;
+    font-size: 18px;
+    position: fixed;
+    width: 100vw;
+    background-color:  rgba(255,255,255,0.9);
+    height: 5vh;
+}

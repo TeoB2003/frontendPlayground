@@ -1,10 +1,17 @@
 @if (isFetching()===true)
 {
-    <app-loader></app-loader>
+    @if (error())
+    {
+        <p>Something went wrong</p>
+    }
+    @else {
+        <app-loader></app-loader>
+    }
 }
 
 @if (photos())
 {
 <app-header [authors]="authors" (author)="photosByAuthor($event)"/>
-<app-photos-area [photos]="photos()" />
+<app-photos-area [photos]="photos()" (numberPages)="setNumberPages($event)"/>
+<app-pagination [totalPages]="numberPages"></app-pagination>
 }

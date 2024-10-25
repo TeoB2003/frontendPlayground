@@ -1,4 +1,4 @@
-.loading-area
+.loading_area
 {
     display: block;
     position: fixed;
@@ -14,10 +14,10 @@
     border-radius: 50%;
     width: 90%;
     height: 90%;
-    animation: spin 3s linear infinite !important;
+    animation: rotate 2s linear infinite ;
   }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
