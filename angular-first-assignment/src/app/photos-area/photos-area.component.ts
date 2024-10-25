@@ -14,7 +14,9 @@ import { EntirePhotoComponent } from '../entire-photo/entire-photo.component';
 export class PhotosAreaComponent  {
   photoService=inject(PhotoService)
   photos=input<Photo[] | undefined>(undefined)
+  photosArray: Photo[]=[]
   numberPages=output<number>();
+  page=input<number>(0);
   isFetching=signal(false)
   error=signal('');
   link='';
@@ -25,9 +27,12 @@ export class PhotosAreaComponent  {
   ngOnChanges()
   {
     const array=this.photos();
+    if (array)
+    this.photosArray=array.slice((this.page()-1)*12, this.page()*12)
     console.log(array?.length)
     if(this.photos() && array)
      this.numberPages.emit(Math.ceil(array.length / 12))
   }
+
   
 }

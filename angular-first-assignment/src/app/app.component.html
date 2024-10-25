@@ -12,6 +12,6 @@
 @if (photos())
 {
 <app-header [authors]="authors" (author)="photosByAuthor($event)"/>
-<app-photos-area [photos]="photos()" (numberPages)="setNumberPages($event)"/>
-<app-pagination [totalPages]="numberPages"></app-pagination>
+<app-photos-area [photos]="photos()" (numberPages)="setNumberPages($event)" [page]="pageNumber"/>
+<app-pagination [totalPages]="numberPages" (currentPage)="currentPage($event)"></app-pagination>
 }

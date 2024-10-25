@@ -25,6 +25,7 @@ export class AppComponent {
   photos=signal<Photo[] | undefined>(undefined);
   selectedAuthor="";
   numberPages=0
+  pageNumber=1
   ngOnInit()
   {
     this.isFetching.set(true)
@@ -58,5 +59,10 @@ export class AppComponent {
   setNumberPages(numberPages: number)
   {
     this.numberPages=numberPages
+  }
+
+  currentPage(page: number)
+  {
+    this.pageNumber=page;
   }
 }
