@@ -20,6 +20,8 @@ export class PhotoService {
 
    getPhotosByAuthor(authorName: string)
    {
+    if (authorName==='all')
+      return this.photosList;
       return this.photosList.filter((photo)=> photo.author===authorName)
    }
    getAuthors()

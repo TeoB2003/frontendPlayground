@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, DestroyRef, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
 import { PhotosAreaComponent } from "./photos-area/photos-area.component";
@@ -6,11 +6,12 @@ import { EntirePhotoComponent } from "./entire-photo/entire-photo.component";
 import { PhotoService } from './photo.service';
 import { HttpClient } from '@angular/common/http';
 import { Photo } from './photo/photo.model';
+import { LoaderComponent } from "./loader/loader.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, PhotosAreaComponent, EntirePhotoComponent],
+  imports: [RouterOutlet, HeaderComponent, PhotosAreaComponent, EntirePhotoComponent, LoaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -18,6 +19,7 @@ export class AppComponent {
   title = 'PhotoGallery';
   photoService=inject(PhotoService);
   private httpCLient=inject(HttpClient);
+  private destroyRef=inject(DestroyRef)
   isFetching=signal(false);
   error=signal('');
   authors: string[]=[];
@@ -25,6 +27,7 @@ export class AppComponent {
   selectedAuthor="";
   ngOnInit()
   {
+    this.isFetching.set(true)
     const subscription= this.photoService.getAllPhotos().subscribe(
       {
           next: (photos)=>{ this.photoService.setPhotos(photos); 
@@ -42,6 +45,10 @@ export class AppComponent {
             this.isFetching.set(false)
           }
       })
+      this.destroyRef.onDestroy(
+        ()=> subscription.unsubscribe()
+      )
+    
   }
   photosByAuthor(author:string)
   {

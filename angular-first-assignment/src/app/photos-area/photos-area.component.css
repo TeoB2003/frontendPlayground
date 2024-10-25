@@ -10,3 +10,12 @@
     height: 85vh;
     overflow-y: auto;
 }
+@media screen and (max-width:750px)
+{
+    .photos-area
+    {
+        gap:0;
+        row-gap: 1%;
+    }
+
+}
