@@ -1,8 +1,6 @@
 <div class="photos_area">
     @for(photo of photosArray; track photo.id)
     {
-       <app-photo [photo]="photo" (propagate_link)="showFullPhoto($event)"/>
+    <app-photo [photo]="photo" (propagate_link)="showFullPhoto($event)" />
     }
-        <app-entire-photo [photoLink]="link"/>
-
 </div>

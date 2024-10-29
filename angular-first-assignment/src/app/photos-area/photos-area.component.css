@@ -1,4 +1,4 @@
-.photos_area{
+.photos_area {
     margin-top: calc(2vh + 2vw + 2.5vh);
     display: flex;
     flex-direction: row;
@@ -10,11 +10,10 @@
     height: 85vh;
     overflow-y: auto;
 }
-@media screen and (max-width:750px)
-{
-    .photos_area
-    {
-        gap:0;
+
+@media screen and (max-width:750px) {
+    .photos_area {
+        gap: 0;
         row-gap: 1%;
     }
 

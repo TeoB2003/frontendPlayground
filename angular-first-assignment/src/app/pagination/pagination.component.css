@@ -1,4 +1,5 @@
-#prev_btn, #next_btn {
+#prev_btn,
+#next_btn {
     margin-top: calc((5vh - 14px) / 2);
     font-size: 12px;
     cursor: pointer;
@@ -17,6 +18,6 @@
     font-size: 18px;
     position: fixed;
     width: 100vw;
-    background-color:  rgba(255,255,255,0.9);
+    background-color: rgba(255, 255, 255, 0.9);
     height: 5vh;
 }

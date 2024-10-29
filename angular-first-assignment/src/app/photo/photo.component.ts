@@ -10,12 +10,11 @@ import { EventEmitter } from 'node:stream';
   styleUrl: './photo.component.css'
 })
 export class PhotoComponent {
-  photo=input<Photo>();
-  propagate_link=output<string>()
+  photo = input<Photo>();
+  propagate_link = output<string>()
 
-  clickOnPhoto(link:string )
-  {
-    console.log('Click '+ link)
+  clickOnPhoto(link: string) {
+    console.log('Click ' + link)
     this.propagate_link.emit(link)
   }
 }

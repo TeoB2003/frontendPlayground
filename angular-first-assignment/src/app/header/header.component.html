@@ -3,9 +3,9 @@
         <p class="author">Author: </p>
         <select class="selectA" [(ngModel)]="selectedAuthor" name="autorsSelect" (change)="selectAuthor()">
             @for (a of authors(); track a) {
-                <option [value]="a"  >{{a}}</option>
+            <option [value]="a">{{a}}</option>
             }
-            <option value="all" >all</option>
+            <option value="All">All</option>
         </select>
     </div>
 </div>

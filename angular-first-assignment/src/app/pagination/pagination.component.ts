@@ -1,4 +1,4 @@
-import { Component,input,output } from '@angular/core';
+import { Component, input, output,signal } from '@angular/core';
 
 @Component({
   selector: 'app-pagination',
@@ -8,17 +8,24 @@ import { Component,input,output } from '@angular/core';
   styleUrl: './pagination.component.css'
 })
 export class PaginationComponent {
-  pageNumber=1;
-  totalPages=input<number>(3);
-  currentPage=output<number>();
-  plusPage()
+  pageNumber = signal(1);
+  totalPages = input<number>(3);
+  currentPage = output<number>();
+
+  ngOnChanges()
   {
-    this.pageNumber++;
-    this.currentPage.emit(this.pageNumber);
+    this.currentPage.emit(1)
+    this.pageNumber.set(1)
   }
-  reducePage()
-  {
-    this.pageNumber--;
-    this.currentPage.emit(this.pageNumber);
+
+  plusPage() {
+    console.log(this.pageNumber)
+    this.pageNumber.set(this.pageNumber()+1);
+    this.currentPage.emit(this.pageNumber());
+  }
+  
+  reducePage() {
+    this.pageNumber.set(this.pageNumber()-1);
+    this.currentPage.emit(this.pageNumber());
   }
 }

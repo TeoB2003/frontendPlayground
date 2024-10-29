@@ -1,23 +1,28 @@
-.loading_area
-{
-    display: block;
-    position: fixed;
-    width: 20vw;
-    height: 20vw;
-    top:50%;
-    margin-top:-10vw;
-    margin-left: 40vw;
+.loading_area {
+  display: block;
+  position: fixed;
+  width: 20vw;
+  height: 20vw;
+  top: 50%;
+  margin-top: -10vw;
+  margin-left: 40vw;
 }
+
 .loader {
-    border: 16px solid #f3f3f3; 
-    border-top: 16px solid antiquewhite; 
-    border-radius: 50%;
-    width: 90%;
-    height: 90%;
-    animation: rotate 2s linear infinite ;
-  }
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid antiquewhite;
+  border-radius: 50%;
+  width: 90%;
+  height: 90%;
+  animation: rotate 2s linear infinite;
+}
 
 @keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
   }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

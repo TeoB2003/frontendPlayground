@@ -1,6 +1,7 @@
-import { Component, inject, output , input} from '@angular/core';
+import { Component, inject, output, input } from '@angular/core';
 import { PhotoService } from '../photo.service';
 import { FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -8,14 +9,16 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
+
 export class HeaderComponent {
-  author=output<string>();
-  authors=input<string[]>();
-  selectedAuthor="all";
-  service=inject(PhotoService);
-  selectAuthor()
-  {
-    console.log('Am selectat '+ this.selectedAuthor)
+
+  author = output<string>();
+  authors = input<string[]>();
+  selectedAuthor = "All";
+  service = inject(PhotoService);
+
+  selectAuthor() {
+    console.log('Am selectat ' + this.selectedAuthor)
     this.author.emit(this.selectedAuthor)
   }
 }

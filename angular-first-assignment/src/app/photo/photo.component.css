@@ -1,4 +1,4 @@
-.photo_frame{
+.photo_frame {
     width: 25vw;
     height: 25vw;
     border-radius: 5px;
@@ -11,20 +11,20 @@
     flex-direction: column;
 }
 
-.photo_preview{
+.photo_preview {
     margin-top: 5%;
     margin-left: 5%;
     margin-right: 5%;
     height: 40%;
 }
 
-.description{
-margin-left: 5%;
-font-size: medium;
-color:grey;
+.description {
+    margin-left: 5%;
+    font-size: medium;
+    color: grey;
 }
 
-.title{
+.title {
     margin-left: 5%;
     margin-top: 2%;
     font-size: large;
@@ -32,19 +32,15 @@ color:grey;
     margin-bottom: 0;
 }
 
-@media screen and (max-width:1200px)
-{
-    .photo_frame
-    {
+@media screen and (max-width:1200px) {
+    .photo_frame {
         width: 40vw;
     }
 
 }
 
-@media screen and (max-width:750px)
-{
-    .photo_frame
-    {
+@media screen and (max-width:750px) {
+    .photo_frame {
         width: 80vw;
         height: 80vw;
     }

@@ -7,18 +7,19 @@ import { Component, computed, effect, input } from '@angular/core';
   templateUrl: './entire-photo.component.html',
   styleUrl: './entire-photo.component.css'
 })
-export class EntirePhotoComponent {
-  photoLink=input<string>('');
-  show=false
 
-  ngOnChanges()
-  {
-   if (this.photoLink()!='')
-      this.show=true
+export class EntirePhotoComponent {
+
+  photoLink = input<string>('');
+  show = false
+
+  ngOnChanges() {
+    if (this.photoLink() != '')
+      this.show = true
   }
-  closePhoto()
-  {
-    this.show=false
+
+  closePhoto() {
+    this.show = false
   }
 
 }
