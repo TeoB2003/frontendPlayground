@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<div class="buttons_area">
+  @if(currentDay!='Sunday' && currentDay!='Saturday')  
+  {
+    <p class="day" [style.backgroundColor]="colors[daysOfWeek.indexOf(currentDay)-1]"  [routerLink]="['..',daysOfWeek[daysOfWeek.indexOf(currentDay)-1]]">{{daysOfWeek[daysOfWeek.indexOf(currentDay)-1]}}</p>
+    <p class="day" [style.backgroundColor]="colors[daysOfWeek.indexOf(currentDay)+1]"  [routerLink]="['..',daysOfWeek[daysOfWeek.indexOf(currentDay)+1]]">{{daysOfWeek[daysOfWeek.indexOf(currentDay)+1]}}</p>
+  }
+  @else if (currentDay=='Sunday') {
+    <p></p>
+    <p class="day" [style.backgroundColor]="colors[daysOfWeek.indexOf(currentDay)+1]"  [routerLink]="['..',daysOfWeek[daysOfWeek.indexOf(currentDay)+1]]">{{daysOfWeek[daysOfWeek.indexOf(currentDay)+1]}}</p>
+  }
+  @else if(currentDay=='Saturday'){
+    <p class="day" [style.backgroundColor]="colors[daysOfWeek.indexOf(currentDay)-1]"  [routerLink]="['..',daysOfWeek[daysOfWeek.indexOf(currentDay)-1]]">{{daysOfWeek[daysOfWeek.indexOf(currentDay)-1]}}</p>
+    <p></p>
+  }
+</div>
+
+<div class="list">
+@for (expense_item of expenses; track expense_item.id)
+    {
+      <app-expense [expense]="expense_item">
+      </app-expense>
+    }
+</div>
+<router-outlet></router-outlet>
+
+
+<div class="bottom">
+<button class="add_expense_button" routerLink="./newExpense">
+    <i class="fas fa-plus"></i> Add Expense
+</button>
+
+<button class="summary_button" [routerLink]="['../']">
+  <i class="fas fa-plus"></i> Week summary
+</button>
+
+<button class="add_expense_button">
+  Total amount spent today:  {{sum}}
+</button>
+</div>

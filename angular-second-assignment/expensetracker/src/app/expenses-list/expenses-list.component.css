@@ -1,0 +1,86 @@
+.add_expense_button {          
+    background-color: #4caf50;  
+    color: white;          
+    padding: 10px 15px;     
+    border: none;           
+    border-radius: 5px;    
+    cursor: pointer;       
+    font-size: 16px;       
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+  }
+
+  .summary_button {         
+    background-color: red;  
+    color: white;          
+    padding: 10px 15px;     
+    border: none;           
+    border-radius: 5px;    
+    cursor: pointer;       
+    font-size: 16px;       
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+  }
+
+.total{
+  background-color: #4caf50;
+  color: white;
+  border-radius: 5px;   
+  font-size: 16px;
+  padding: 10px 15px;
+  width: 10%;            
+}
+
+.buttons_area{
+  height: 5%;
+  display: flex;
+  width: 98%;
+  margin-left: 1%;
+  justify-content: space-between;
+}
+
+.day {
+  width: 10%;                                 
+  overflow: hidden;                                      
+  cursor: pointer;                   
+  background-color: #f0f0f0;         
+  text-align: center;               
+  border-radius: 5px; 
+  height: 70%;  
+  color: white;             
+}
+
+.bottom{
+  height: 7%;
+  justify-content: flex-start;
+  display: flex;
+  justify-content: space-between;
+  width: 88%;
+  margin-left: 1%;
+  position: fixed;
+  bottom: 4.5%;
+  margin-right: 1%;
+}
+
+.list{
+  width: 100%;
+  height: 75%;
+  margin-top: 0.5%;
+  overflow-y: auto;
+}
+
+.list::-webkit-scrollbar {
+  width: 12px; 
+}
+
+.list::-webkit-scrollbar-track {
+  background: #f0f0f0; 
+  border-radius: 10px; 
+}
+
+.list::-webkit-scrollbar-thumb {
+  background: #4caf50; /* scrollbar color */
+  border-radius: 10px; /* round edges */
+}
+
+.list::-webkit-scrollbar-thumb:hover {
+  background: #45a049; /* scrollbar color on hover */
+}

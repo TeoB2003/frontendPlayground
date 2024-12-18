@@ -1,0 +1,21 @@
+<div class="rectangle">
+    <div class="title">{{expense()?.title}}</div>
+    <div class="info_container">
+        <div class="info_row">
+            <span class="label">Amount:</span>
+            <span class="value">{{expense()?.amount}}</span>
+        </div>
+        <div class="info_row">
+            <span class="label">Category:</span>
+            <span class="value">{{expense()?.category}}</span>
+        </div>
+    </div>
+    <div class="button_container">
+        <button class="edit_button" [routerLink]="[ expense()?.id?.toString(), 'modify']">
+            <i class="fas fa-edit"></i> 
+        </button>
+        <button class="delete_button" >
+            <i class="fas fa-trash" (click)="deletePost(expense()?.id)"></i> 
+        </button>
+    </div>
+</div>
