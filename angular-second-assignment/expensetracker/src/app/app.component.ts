@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { LoginService } from './login/login.service';
 import { ExpensesService } from './expense.service';
 import { filter } from 'rxjs';
@@ -10,7 +10,7 @@ import { StatisticsComponent } from "./statistics/statistics.component";
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [RouterLink, RouterOutlet, StatisticsComponent]
+  imports: [RouterLink, RouterOutlet, StatisticsComponent, RouterLinkActive]
 })
 export class AppComponent implements OnInit {
   title = 'expensetracker';

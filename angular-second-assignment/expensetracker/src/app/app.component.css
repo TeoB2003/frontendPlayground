@@ -48,9 +48,11 @@
     visibility: visible;              
     position: static;                  
   }
-
   .summary_area{
     width: 90%;
+  }
+ .selected{
+    background-color: black;
   }
 
 

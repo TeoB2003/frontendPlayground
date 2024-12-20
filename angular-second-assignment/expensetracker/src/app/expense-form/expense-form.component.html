@@ -9,10 +9,24 @@
         <label for="amount">Amount:</label>
         <input type="number" id="amount" name="amount" required placeholder="Enter amount" [ngModel]="this.amount==0? null : this.amount" />
       </div>
+
       <div class="form-group">
-        <label for="category">Category:</label>
+      <label for="category">Category:</label>
+       <!-- 
+        <select id="categorySelect" [(ngModel)]="this.selectedCategory">
+          @for(category of exisitingCategories; track category)
+          { 
+            <option  [value]="category">{{ category }}</option>
+          }
+          <option value="new">Other (specify)</option>
+        </select>
+        @if (category=='new')
+        {
+        }
+          -->
         <input type="text" id="category" name="category" required placeholder="Enter category" [ngModel]="this.category"/>
       </div>
+
       <button type="submit" class="submit-button">{{buttonText}}</button>
     </form>
     @if (ok==false)

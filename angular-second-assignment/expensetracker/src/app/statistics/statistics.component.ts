@@ -3,14 +3,18 @@ import { Expense } from '../expense.model';
 import { ExpensesService } from '../expense.service';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef } from 'ag-grid-community'; 
-import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
+import {
+  ModuleRegistry,
+  ClientSideRowModelModule,
+  AllCommunityModule,
+} from 'ag-grid-community';
 
 @Component({
   selector: 'app-statistics',
   standalone: true,
   templateUrl: './statistics.component.html',
   styleUrls: ['./statistics.component.css'],
-  imports: [AgGridAngular]  // Keep only the component here
+  imports: [AgGridAngular]  
 })
 export class StatisticsComponent {
   public columnDefs: ColDef[];
@@ -22,21 +26,16 @@ export class StatisticsComponent {
     this.rowData = this.expensesService.expenses;
     console.log(this.rowData);
     this.columnDefs = [
-      { headerName: 'ID', field: 'id', sortable: true, filter: true },
-      { headerName: 'Title', field: 'title', sortable: true, filter: true },
-      { headerName: 'Amount', field: 'amount', sortable: true, filter: true },
-      { headerName: 'Category', field: 'category', sortable: true, filter: true },
-      { headerName: 'Author', field: 'author', sortable: true, filter: true },
+      { headerName: 'Title', field: 'title', sortable: true},
+      { headerName: 'Amount', field: 'amount', sortable: true },
+      { headerName: 'Category', field: 'category', filter: 'true' },
       { headerName: 'Day', field: 'day', sortable: true, filter: true },
     ];
 
-    this.gridOptions = {
-      rowModelType: 'clientSide', 
-      modules: [ClientSideRowModelModule], 
-      onGridReady: (params: any) => {
-        params.api.setRowData(this.rowData);
-      }
-    };
+    ModuleRegistry.registerModules([
+      ClientSideRowModelModule,
+      AllCommunityModule
+  ]);
   }
   
 }
