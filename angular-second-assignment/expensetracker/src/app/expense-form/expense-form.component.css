@@ -42,3 +42,11 @@ input {
 .submit-button:hover {
     background-color: #45a049; 
 }
+select {
+    width: 97%; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    appearance: none; 
+    cursor: pointer; 
+}

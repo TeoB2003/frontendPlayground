@@ -24,6 +24,7 @@ export class ExpenseFormComponent implements OnInit{
   exisitingCategories=this.expenseService.categories
   buttonText=''
   selectedCategory=''
+  showSeleect=true
 
   ngOnInit()  {
     let param=this.routeParams.snapshot.paramMap.get('id');
@@ -50,12 +51,10 @@ export class ExpenseFormComponent implements OnInit{
     this.title=form.value.title
     this.amount=form.value.amount
     
-    /*if(this.selectedCategory==='new')
+    if(this.selectedCategory==='new')
         this.category=form.value.category
     else 
-      this.category=this.selectedCategory*/
-      this.category=form.value.category
-
+      this.category=this.selectedCategory
     if (this.title=='' && this.amount<=0 && this.category=='')
         this.ok=false
     else
@@ -87,7 +86,17 @@ export class ExpenseFormComponent implements OnInit{
       this.router.navigate([this.day])
     }
   }
+
   private isValidDay(day: string): day is Day {
     return ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].includes(day);
   }
+
+  logCategory(selectedCategory: string)
+  {
+    this.selectedCategory=selectedCategory
+    console.log('selectat: '+selectedCategory)
+    if (selectedCategory=='new')
+      this.showSeleect=false;
+  }
+
 }
