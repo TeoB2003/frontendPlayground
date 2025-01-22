@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { Expense } from '../expense.model';
-import { ExpensesService } from '../expense.service';
+import { Expense } from '../shared/models/expense.model';
+import { ExpensesService } from '../shared/services/expense.service';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef } from 'ag-grid-community'; 
 import {

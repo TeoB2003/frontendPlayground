@@ -1,7 +1,7 @@
 import { Component, inject, input, OnInit } from '@angular/core';
-import { Expense } from '../expense.model';
+import { Expense } from '../shared/models/expense.model';
 import { RouterLink } from '@angular/router';
-import { ExpensesService } from '../expense.service';
+import { ExpensesService } from '../shared/services/expense.service';
 
 @Component({
   selector: 'app-expense',
@@ -12,11 +12,11 @@ import { ExpensesService } from '../expense.service';
 })
 export class ExpenseComponent implements OnInit{
    expense=input<Expense>();
+   expenseService=inject(ExpensesService)
    ngOnInit()
    {
      console.log(this.expense())
    }
-   expenseService=inject(ExpensesService)
    deletePost(id: number | undefined)
    {
       if(id!=undefined)
@@ -25,9 +25,7 @@ export class ExpenseComponent implements OnInit{
          if (userConfirmed) {
           this.expenseService.removeExpense(id)
           location.reload();
-           } else {
-          console.log('Cheltuiala nu a fost ștearsă.');
-         }
+           } 
         }
    }
 }

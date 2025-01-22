@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { type Expense } from './expense.model';
+import { type Expense } from '../models/expense.model';
 
 @Injectable({ providedIn: 'root' })
 export class ExpensesService {

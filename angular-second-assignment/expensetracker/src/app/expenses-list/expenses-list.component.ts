@@ -1,9 +1,9 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
-import { ExpensesService } from '../expense.service';
+import { ExpensesService } from '../shared/services/expense.service';
 import { ExpenseComponent } from '../expense/expense.component';
-import { Expense } from '../expense.model';
+import { Expense } from '../shared/models/expense.model';
 @Component({
   selector: 'app-expenses-list',
   standalone: true,

@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { LoginService } from './login/login.service';
-import { ExpensesService } from './expense.service';
+import { ExpensesService } from './shared/services/expense.service';
 import { filter } from 'rxjs';
 import { StatisticsComponent } from "./statistics/statistics.component";
 

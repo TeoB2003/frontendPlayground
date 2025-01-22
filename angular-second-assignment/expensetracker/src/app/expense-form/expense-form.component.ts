@@ -1,9 +1,9 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { ExpensesService } from '../expense.service';
+import { ExpensesService } from '../shared/services/expense.service';
 import { title } from 'process';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Expense } from '../expense.model';
+import { Expense } from '../shared/models/expense.model';
 type Day = 'Sunday' | 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday';
 @Component({
   selector: 'app-expense-form',
@@ -28,7 +28,6 @@ export class ExpenseFormComponent implements OnInit{
 
   ngOnInit()  {
     let param=this.routeParams.snapshot.paramMap.get('id');
-    console.log(param)
     if(param==null)
       {
         this.buttonText='Add expense'
@@ -48,27 +47,29 @@ export class ExpenseFormComponent implements OnInit{
 
   onSubmit(form: NgForm)
   {
+    this.ok=true
     this.title=form.value.title
     this.amount=form.value.amount
     
     if(this.selectedCategory==='new')
         this.category=form.value.category
+        
     else 
       this.category=this.selectedCategory
-    if (this.title=='' && this.amount<=0 && this.category=='')
+    console.log("Categorry "+this.category)
+    console.log("title "+this.title)
+    console.log("Amount "+this.amount)
+    if (this.title=='' || (this.amount<=0 || this.amount==null) || this.category=='')
         this.ok=false
     else
     {
       let dayParam=this.routeParams.snapshot.paramMap.get('day')
       if (dayParam && this.isValidDay(dayParam)) {
         this.day = dayParam as Day; 
-        console.log(`Valid day: ${this.day}`);
       } 
-
-      ///util de pus o afisare eroare deaca ziua nu e corecta
-      
-      console.log(this.day)
-
+    console.log(this.ok)
+    if(this.ok==true)  
+    {
       let param=this.routeParams.snapshot.paramMap.get('id');
       if(param==null)
         this.expenseService.addExpense({
@@ -85,18 +86,18 @@ export class ExpenseFormComponent implements OnInit{
       }
       this.router.navigate([this.day])
     }
-  }
-
-  private isValidDay(day: string): day is Day {
-    return ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].includes(day);
+    }
   }
 
   logCategory(selectedCategory: string)
   {
     this.selectedCategory=selectedCategory
-    console.log('selectat: '+selectedCategory)
     if (selectedCategory=='new')
       this.showSeleect=false;
+  }
+
+  private isValidDay(day: string): day is Day {
+    return ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].includes(day);
   }
 
 }
