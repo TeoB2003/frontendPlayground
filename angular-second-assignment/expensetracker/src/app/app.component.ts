@@ -4,28 +4,21 @@ import { LoginService } from './login/login.service';
 import { ExpensesService } from './shared/services/expense.service';
 import { filter } from 'rxjs';
 import { StatisticsComponent } from "./statistics/statistics.component";
+import { DayColor } from './shared/enums/colorEnum';
+import { DaysOfWeek } from './shared/enums/daysEnum';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [RouterLink, RouterOutlet, StatisticsComponent, RouterLinkActive]
+  imports: [RouterLink, RouterOutlet, StatisticsComponent]
 })
 export class AppComponent implements OnInit {
   title = 'expensetracker';
-  daysOfWeek: string[] = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday'
-  ];
+  daysOfWeek: string[] = Object.values(DaysOfWeek);
   currentPath: string='';
   expensesService=inject(ExpensesService)
-  colors: string[] = ['#FF5733', '#33FF57', '#3357FF', '#FF33A6', '#FFB733', '#33FFF5', '#F733FF'];
   logingService=inject(LoginService)
   user=this.logingService.getUserName()
   expenses=this.expensesService.getExpensesForUser(this.user)
@@ -38,5 +31,9 @@ export class AppComponent implements OnInit {
       this.currentPath = this.router.url;  
       console.log(this.currentPath); 
     });
+  }
+
+  getBackgroundColor(day: string): string {
+      return   !this.router.url.includes(day) ?  DayColor[day as keyof typeof DayColor] : 'black'; 
   }
 }

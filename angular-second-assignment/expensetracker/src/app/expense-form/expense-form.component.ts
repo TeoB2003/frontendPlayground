@@ -4,7 +4,7 @@ import { ExpensesService } from '../shared/services/expense.service';
 import { title } from 'process';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Expense } from '../shared/models/expense.model';
-type Day = 'Sunday' | 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday';
+import { DaysOfWeek } from '../shared/enums/daysEnum';
 @Component({
   selector: 'app-expense-form',
   standalone: true,
@@ -20,7 +20,7 @@ export class ExpenseFormComponent implements OnInit{
   amount=0
   category=''
   ok=true
-  day: Day='Monday'
+  day: DaysOfWeek=DaysOfWeek.Sunday
   exisitingCategories=this.expenseService.categories
   buttonText=''
   selectedCategory=''
@@ -65,7 +65,7 @@ export class ExpenseFormComponent implements OnInit{
     {
       let dayParam=this.routeParams.snapshot.paramMap.get('day')
       if (dayParam && this.isValidDay(dayParam)) {
-        this.day = dayParam as Day; 
+        this.day = DaysOfWeek[dayParam as keyof typeof DaysOfWeek];
       } 
     console.log(this.ok)
     if(this.ok==true)  
@@ -96,8 +96,8 @@ export class ExpenseFormComponent implements OnInit{
       this.showSeleect=false;
   }
 
-  private isValidDay(day: string): day is Day {
-    return ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].includes(day);
+  private isValidDay(day: string): day is keyof typeof DaysOfWeek {
+    return Object.keys(DaysOfWeek).includes(day);
   }
 
 }

@@ -2,15 +2,18 @@
 <div class="buttons_area">
   @if(currentDay!='Sunday' && currentDay!='Saturday')  
   {
-    <p class="day" [style.backgroundColor]="colors[daysOfWeek.indexOf(currentDay)-1]"  [routerLink]="['..',daysOfWeek[daysOfWeek.indexOf(currentDay)-1]]">{{daysOfWeek[daysOfWeek.indexOf(currentDay)-1]}}</p>
-    <p class="day" [style.backgroundColor]="colors[daysOfWeek.indexOf(currentDay)+1]"  [routerLink]="['..',daysOfWeek[daysOfWeek.indexOf(currentDay)+1]]">{{daysOfWeek[daysOfWeek.indexOf(currentDay)+1]}}</p>
+    <p class="day" [style.backgroundColor]="getBackgroundColor(daysOfWeek [daysOfWeek.indexOf(currentDay)-1])"  [routerLink]="['..',daysOfWeek[daysOfWeek.indexOf(currentDay)-1]]">{{daysOfWeek[daysOfWeek.indexOf(currentDay)-1]}}</p>
+    <p>Expenses for {{ currentDay}}</p>
+    <p class="day" [style.backgroundColor]="getBackgroundColor(daysOfWeek [daysOfWeek.indexOf(currentDay)+1])"  [routerLink]="['..',daysOfWeek[daysOfWeek.indexOf(currentDay)+1]]">{{daysOfWeek[daysOfWeek.indexOf(currentDay)+1]}}</p>
   }
   @else if (currentDay=='Sunday') {
     <p></p>
-    <p class="day" [style.backgroundColor]="colors[daysOfWeek.indexOf(currentDay)+1]"  [routerLink]="['..',daysOfWeek[daysOfWeek.indexOf(currentDay)+1]]">{{daysOfWeek[daysOfWeek.indexOf(currentDay)+1]}}</p>
+    <p>Expenses for {{ currentDay}}</p>
+    <p class="day" [style.backgroundColor]="getBackgroundColor(daysOfWeek [daysOfWeek.indexOf(currentDay)+1])"  [routerLink]="['..',daysOfWeek[daysOfWeek.indexOf(currentDay)+1]]">{{daysOfWeek[daysOfWeek.indexOf(currentDay)+1]}}</p>
   }
   @else if(currentDay=='Saturday'){
-    <p class="day" [style.backgroundColor]="colors[daysOfWeek.indexOf(currentDay)-1]"  [routerLink]="['..',daysOfWeek[daysOfWeek.indexOf(currentDay)-1]]">{{daysOfWeek[daysOfWeek.indexOf(currentDay)-1]}}</p>
+    <p class="day" [style.backgroundColor]="getBackgroundColor( daysOfWeek [daysOfWeek.indexOf(currentDay)-1])"  [routerLink]="['..',daysOfWeek[daysOfWeek.indexOf(currentDay)-1]]">{{daysOfWeek[daysOfWeek.indexOf(currentDay)-1]}}</p>
+    <p>Expenses for {{ currentDay}}</p>
     <p></p>
   }
 </div>

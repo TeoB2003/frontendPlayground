@@ -4,6 +4,8 @@ import { filter } from 'rxjs';
 import { ExpensesService } from '../shared/services/expense.service';
 import { ExpenseComponent } from '../expense/expense.component';
 import { Expense } from '../shared/models/expense.model';
+import { DaysOfWeek } from '../shared/enums/daysEnum';
+import { DayColor } from '../shared/enums/colorEnum';
 @Component({
   selector: 'app-expenses-list',
   standalone: true,
@@ -11,43 +13,38 @@ import { Expense } from '../shared/models/expense.model';
   templateUrl: './expenses-list.component.html',
   styleUrl: './expenses-list.component.css'
 })
+
 export class ExpensesListComponent implements OnInit{
   expenseService=inject(ExpensesService)
   expenses: Expense[]=[]
   sum=0
   routeParams=inject(ActivatedRoute)
-  currentDay=''
-
-  daysOfWeek: string[] = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday'
-  ];
-  colors: string[] = ['#FF5733', '#33FF57', '#3357FF', '#FF33A6', '#FFB733', '#33FFF5', '#F733FF'];
+  currentDay: string = '';
+  daysOfWeek: string[] = Object.values(DaysOfWeek);
 
   ngOnInit() {
     this.routeParams.paramMap.subscribe(paramMap => {
       const day = paramMap.get('day');
       if(day!=null)
-        this.currentDay=day
-      this.updateExpenses(day);
+        this.currentDay=day;
+      this.updateExpenses(this.currentDay);
     });
     const initialDay = this.routeParams.snapshot.paramMap.get('day');
     this.updateExpenses(initialDay);
   }
 
+  getBackgroundColor(day: string): string {
+    return DayColor[day as keyof typeof DayColor] || '#FFFFFF'; 
+  }
+
   private updateExpenses(day: string | null) {
     if (day) {
-      this.expenses = this.expenseService.getExpensesForUser('Dummy User').filter(e => e.day === day);
+      this.expenses = this.expenseService.getExpensesForUser('Dummy User').filter(e => e.day === day as DaysOfWeek && e.category!='');
       this.sum=this.expenses.reduce((acc, a)=> acc=acc+a.amount, 0)
-      console.log(this.expenses); 
     } else {
       this.expenses = [];
     }
   }
+  
 
 }

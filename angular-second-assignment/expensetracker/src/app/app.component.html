@@ -4,7 +4,7 @@
   <div class="days_container">
     @for(day of daysOfWeek; track day)
     {
-    <p class="day" [attr.full-day]=day.slice(3) [style.backgroundColor]="colors[daysOfWeek.indexOf(day)]"  [routerLink]="day" routerLinkActive="selected">
+    <p class="day"  [style.backgroundColor]="getBackgroundColor( daysOfWeek[daysOfWeek.indexOf(day)])" [routerLink]="'/'+day"   [attr.full-day]=day.slice(3)  >
       {{day.slice(0,3)}}</p>
     }
   </div>

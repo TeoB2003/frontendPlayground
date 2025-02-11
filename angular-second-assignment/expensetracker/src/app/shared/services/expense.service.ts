@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { type Expense } from '../models/expense.model';
+import { DaysOfWeek } from '../enums/daysEnum';
 
 @Injectable({ providedIn: 'root' })
 export class ExpensesService {
@@ -10,7 +11,7 @@ export class ExpensesService {
         amount: 20000,
         category: 'Auto',
         author: 'Dummy User',
-        day: 'Monday'
+        day: DaysOfWeek.Monday
     }]
     inUseExpenses: Expense[]=[]
     maxId=1

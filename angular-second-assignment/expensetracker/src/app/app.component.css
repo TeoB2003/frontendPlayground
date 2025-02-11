@@ -32,7 +32,9 @@
     height: 8%;  
     color: white;             
   }
-  
+  .day.selected{
+    background-color: black;
+  }
   .day:hover {
     width: 100px;                      
   }
@@ -50,9 +52,6 @@
   }
   .summary_area{
     width: 90%;
-  }
- .selected{
-    background-color: black;
   }
 
 
