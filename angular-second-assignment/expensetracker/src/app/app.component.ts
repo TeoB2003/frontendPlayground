@@ -17,23 +17,24 @@ import { DaysOfWeek } from './shared/enums/daysEnum';
 export class AppComponent implements OnInit {
   title = 'expensetracker';
   daysOfWeek: string[] = Object.values(DaysOfWeek);
-  currentPath: string='';
-  expensesService=inject(ExpensesService)
-  logingService=inject(LoginService)
-  user=this.logingService.getUserName()
-  expenses=this.expensesService.getExpensesForUser(this.user)
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
-  ngOnInit()
-  {
+  currentPath: string = '';
+  expensesService = inject(ExpensesService)
+  logingService = inject(LoginService)
+  user = this.logingService.getUserName()
+  expenses = this.expensesService.getExpensesForUser(this.user)
+
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+
+  ngOnInit() {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
-      this.currentPath = this.router.url;  
-      console.log(this.currentPath); 
+      this.currentPath = this.router.url;
+      console.log(this.currentPath);
     });
   }
 
   getBackgroundColor(day: string): string {
-      return   !this.router.url.includes(day) ?  DayColor[day as keyof typeof DayColor] : 'black'; 
+    return !this.router.url.includes(day) ? DayColor[day as keyof typeof DayColor] : 'black';
   }
 }

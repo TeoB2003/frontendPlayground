@@ -1,0 +1,58 @@
+$background-color: rgba(255, 255, 255, 0.8);
+$border-radius: 8px;
+$padding: 10px;
+$input-border: 1px solid #ccc;
+$box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+$primary-color: #4caf50;
+$primary-hover: #45a049;
+
+.form-container {
+    background-color: $background-color;
+    backdrop-filter: blur(10px);
+    border-radius: $border-radius;
+    padding: 20px;
+    width: 35%;
+    margin: 20px auto;
+    box-shadow: $box-shadow;
+}
+
+.form-title {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: $padding;
+    border: $input-border;
+    border-radius: 5px;
+}
+
+select {
+    appearance: none;
+    cursor: pointer;
+}
+
+.submit-button {
+    background-color: $primary-color;
+    color: white;
+    padding: $padding;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+
+    &:hover {
+        background-color: $primary-hover;
+    }
+}

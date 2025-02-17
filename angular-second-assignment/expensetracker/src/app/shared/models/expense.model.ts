@@ -1,9 +1,9 @@
-import {DaysOfWeek} from '../enums/daysEnum'
+import { DaysOfWeek } from '../enums/daysEnum'
 export interface Expense {
-    id:number;
-    title: string;    
-    amount: number;   
-    category: string; 
-    author:string;
-    day: DaysOfWeek;
-  }
+  id: number;
+  title: string;
+  amount: number;
+  category: string;
+  author: string;
+  day: DaysOfWeek;
+}

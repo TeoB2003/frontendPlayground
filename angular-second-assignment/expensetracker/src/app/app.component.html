@@ -4,14 +4,17 @@
   <div class="days_container">
     @for(day of daysOfWeek; track day)
     {
-    <p class="day"  [style.backgroundColor]="getBackgroundColor( daysOfWeek[daysOfWeek.indexOf(day)])" [routerLink]="'/'+day"   [attr.full-day]=day.slice(3)  >
+    <p class="day" [style.backgroundColor]="getBackgroundColor( daysOfWeek[daysOfWeek.indexOf(day)])"
+      [routerLink]="'/'+day" [attr.full-day]=day.slice(3)>
       {{day.slice(0,3)}}</p>
     }
   </div>
   <div class="summary_area">
     @if(currentPath=='/')
     {
-      <app-statistics></app-statistics>
+    <p style="margin-left: 1%;">Welcome back!</p>
+    <p style="margin-left: 1%;">If you press here you can see your week summary: <a [routerLink]="'/summary'" style="color: blue; text-decoration: none;">click here</a></p>
+
     }
     <router-outlet></router-outlet>
   </div>

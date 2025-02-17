@@ -1,0 +1,70 @@
+$border-radius: 5px;
+$padding: 10px;
+$margin: 10px;
+$box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+$edit-color: #4caf50;
+$delete-color: #f44336;
+$background-color: #f9f9f9;
+$border-color: #ccc;
+$text-color: #333;
+
+.rectangle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin: $margin;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    background-color: $background-color;
+    box-shadow: $box-shadow;
+}
+
+.title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-right: 1%;
+}
+
+.info_container {
+    flex-grow: 1;
+}
+
+.info_row {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0.5%;
+    margin-right: 1.5%;
+}
+
+.label {
+    font-weight: bold;
+    margin-right: 0.5%;
+}
+
+.value {
+    color: $text-color;
+}
+
+.button_container {
+    display: flex;
+    gap: 10px;
+}
+
+.edit_button,
+.delete_button {
+    border: none;
+    padding: $padding;
+    border-radius: $border-radius;
+    cursor: pointer;
+}
+
+.edit_button {
+    background-color: $edit-color;
+    color: white;
+}
+
+.delete_button {
+    background-color: $delete-color;
+    color: white;
+}

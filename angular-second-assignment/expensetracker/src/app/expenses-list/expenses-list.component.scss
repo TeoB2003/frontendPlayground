@@ -1,0 +1,82 @@
+$green-color: #4caf50;
+$red-color: red;
+
+@mixin button-style($bg-color) {
+  background-color: $bg-color;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add_expense_button {
+  @include button-style($green-color);
+}
+
+.summary_button {
+  @include button-style($red-color);
+}
+
+.total {
+  @include button-style($green-color);
+  width: 10%;
+}
+
+.buttons_area {
+  height: 7%;
+  display: flex;
+  width: 98%;
+  margin-left: 1%;
+  justify-content: space-between;
+}
+
+.day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10%;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  text-align: center;
+  border-radius: 5px;
+  height: 70%;
+  color: white;
+}
+
+.bottom {
+  height: 7%;
+  justify-content: flex-start;
+  display: flex;
+  justify-content: space-between;
+  width: 88%;
+  margin-left: 0.5%;
+  position: fixed;
+  bottom: 4.5%;
+  margin-right: 1%;
+}
+
+.list {
+  width: 100%;
+  height: 70vh;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  overflow-y: auto;
+}
+
+.list::-webkit-scrollbar {
+  width: 1%;
+}
+
+.list::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 2px;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background: $green-color;
+  border-radius: 10px;
+}
