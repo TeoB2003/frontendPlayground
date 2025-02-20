@@ -30,9 +30,8 @@ label {
     margin-bottom: 5px;
 }
 
-input,
-select {
-    width: 100%;
+input {
+    width: 95%;
     padding: $padding;
     border: $input-border;
     border-radius: 5px;
@@ -41,6 +40,10 @@ select {
 select {
     appearance: none;
     cursor: pointer;
+    width: 100%;
+    padding: $padding;
+    border: $input-border;
+    border-radius: 5px;
 }
 
 .submit-button {

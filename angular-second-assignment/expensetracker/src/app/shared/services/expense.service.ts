@@ -16,7 +16,6 @@ export class ExpensesService {
     }]
     inUseExpenses: Expense[] = []
     maxId = 1
-    categories: string[] = []
 
     constructor() {
         const expenses = localStorage.getItem('expenses');
@@ -27,10 +26,6 @@ export class ExpensesService {
         let array = this.expenses.map((e) => e.id)
         this.maxId = array.length > 0 ? Math.max(...array) : 0;
 
-        let tempCategories = this.expenses.map((e) => e.category)
-        const categoriesSet = new Set(tempCategories);
-        this.categories = Array.from(categoriesSet)
-
     }
     getExpensesForUser(name: string) {
         this.inUseExpenses = this.expenses.filter((a) => a.author == name)
@@ -38,6 +33,13 @@ export class ExpensesService {
 
     }
 
+    getCategories() {
+        let tempCategories = this.expenses.map((e) => e.category)
+        const categoriesSet = new Set(tempCategories);
+        let categories = Array.from(categoriesSet)
+        return categories
+    }
+    
     addExpense(expense: Expense) {
         this.maxId++
         this.expenses.unshift({

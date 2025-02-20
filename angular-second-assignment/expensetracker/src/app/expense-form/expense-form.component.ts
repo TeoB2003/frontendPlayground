@@ -20,7 +20,7 @@ export class ExpenseFormComponent implements OnInit {
   category = ''
   ok = true
   day: DaysOfWeek = DaysOfWeek.Sunday
-  exisitingCategories = this.expenseService.categories
+  exisitingCategories = this.expenseService.getCategories()
   buttonText = ''
   selectedCategory = ''
   showSeleect = true
@@ -72,6 +72,7 @@ export class ExpenseFormComponent implements OnInit {
         else {
           this.expenseService.modifyExpense(+param, this.category, this.amount, this.title)
         }
+        this.updateCategories()
         this.router.navigate([this.day])
       }
     }
@@ -87,4 +88,8 @@ export class ExpenseFormComponent implements OnInit {
     return Object.keys(DaysOfWeek).includes(day);
   }
 
+  private updateCategories()
+  {
+    this.exisitingCategories=this.expenseService.getCategories()
+  }
 }
