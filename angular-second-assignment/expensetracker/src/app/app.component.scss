@@ -1,0 +1,74 @@
+$header-height: 5vh;
+$days-container-width: 10%;
+$summary-width: 90%;
+$day-width: 50%;
+$day-hover-width: 100px;
+$day-height: 8%;
+$border-radius: 5px;
+$selected-bg-color: black;
+$text-color: white;
+$hover-bg-color: #45a049;
+
+.header {
+    height: $header-height;
+    margin-left: 11%;
+    width: 89%;
+    margin-bottom: 0;
+}
+
+.main {
+    display: flex;
+    width: 100%;
+}
+
+.days_container {
+    width: $days-container-width;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.day {
+    width: $day-width;
+    white-space: nowrap;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 0.3s ease;
+    cursor: pointer;
+    background-color:white;
+    text-align: center;
+    border-radius: $border-radius;
+    height: $day-height;
+    color: $text-color;
+
+    &.selected {
+        background-color: $selected-bg-color;
+    }
+
+    &:hover {
+        width: $day-hover-width;
+    }
+
+    &::after {
+        content: attr(full-day);
+        visibility: hidden;
+        position: absolute;
+        white-space: nowrap;
+    }
+
+    &:hover::after {
+        visibility: visible;
+        position: static;
+    }
+}
+
+.summary_area {
+    width: $summary-width;
+}
+
+.add_expense_button:hover {
+    background-color: $hover-bg-color;
+}
